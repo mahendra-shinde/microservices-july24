@@ -68,3 +68,38 @@ $ cd demo-1
 $ set OWNER_NAME=Tommy
 $ java -jar demo-1-1.0.jar
 ```
+
+
+## Demo 2 : Basic REST Service Project
+
+1. File Menu -> New -> Spring Starter Project
+
+   Build Tool : Maven
+   Language : Java
+   Packaging: Jar
+   Project Name : demo-2
+   Group Name : com.oracle1
+   Artifact : demo-2
+   version : 1.0
+   Package Name : com.oracle1.demo2
+
+2. In Dependencies choose "Spring Web"
+
+3. Create a new `HomeController` java class in src/main/java folder
+
+```java
+@RestController
+@RequestMapping("/")
+public class HomeController {
+
+	@GetMapping(produces = "application/json")
+	
+	public String home() {
+		return "{\"App\":\"Demo-2\", \"Framework\": \"Spring boot 3.3.1\" }";
+	}
+}
+```
+
+4. Right click > Run As > Spring Boot Application
+
+5. Using web browser, visit http://localhost:8080
