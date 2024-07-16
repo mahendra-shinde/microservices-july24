@@ -6,8 +6,14 @@ public class Account {
 	private String accountNo;
 	private Date openingDate;
 	private Double balance;
+	private Customer customer;
 	
-	
+	public Customer getCustomer() {
+		return customer;
+	}
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 	public String getAccountNo() {
 		return accountNo;
 	}
