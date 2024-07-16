@@ -1,0 +1,24 @@
+package com.mahendra.demo3.resources;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.mahendra.demo3.models.Customer;
+
+@RestController
+@RequestMapping("/")
+public class CustomerResource {
+
+	@GetMapping(produces="application/json")
+	@RequestMapping("/{custId}")
+	public Customer findCustomer(@PathVariable("custId") String custId) {
+		Customer customer = new Customer();
+		customer.setCustId(custId);
+		customer.setFirstName("Rajiv");
+		customer.setLastName("Bhatia");
+		customer.setAddress("Bandra, Mumbai");
+		return customer;
+	}
+}
