@@ -17,9 +17,7 @@ public class Demo1Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("Hello "+owner);
-		
+		System.out.println("Hello "+owner);		
 	}
-
 	
 }

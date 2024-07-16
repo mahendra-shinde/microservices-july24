@@ -52,4 +52,19 @@ public class Demo1Application implements CommandLineRunner {
 
 6. Right click anywhere inside the java code and use option "Run As" > "Java Application"
 
+> Spring boot projects include "Embedded Maven" which can be used from Command line to build projects
 
+```bash
+$ cd demo-1
+$ mvnw.cmd package
+$ cd target
+$ java -jar demo-1-1.0.jar
+```
+
+> Test the Env Variable Override
+
+```bash
+$ cd demo-1
+$ set OWNER_NAME=Tommy
+$ java -jar demo-1-1.0.jar
+```
