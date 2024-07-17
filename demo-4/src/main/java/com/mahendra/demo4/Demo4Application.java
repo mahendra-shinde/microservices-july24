@@ -9,6 +9,7 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableDiscoveryClient
+
 public class Demo4Application {
 
 	public static void main(String[] args) {
