@@ -5,10 +5,12 @@ import java.text.ParseException;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import com.mahendra.demo4.models.Account;
 import com.mahendra.demo4.models.Customer;
@@ -17,7 +19,8 @@ import com.mahendra.demo4.models.Customer;
 @RequestMapping("/")
 public class AccountResource {
 
-	@Autowired private CustomerClient client;
+	@Autowired 
+    private RestTemplate template;
 	
 	@GetMapping(produces = "application/json")
 	@RequestMapping("/{accNo}")
@@ -26,7 +29,8 @@ public class AccountResource {
 		acc.setAccountNo(accNo);
 		acc.setOpeningDate(getDate("1/1/2012"));
 		acc.setBalance(12300.00);
-		Customer cust = client.find("C1111");
+		// Expect "Eureka Server" to replace "customer-service" with "localhost:7000" 
+		Customer cust = template.getForObject("http://customer-service/find/1234", Customer.class);
 		acc.setCustomer(cust);
 		return acc;
 	}
