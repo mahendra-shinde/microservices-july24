@@ -18,6 +18,6 @@ import com.mahendra.demo4.models.Customer;
 
 @FeignClient(name="customer-service")
 public interface CustomerClient {
-	@GetMapping("/{custId}")
+	@GetMapping("/find/{custId}")
 	Customer find(@PathVariable("custId}") String custId);
 }

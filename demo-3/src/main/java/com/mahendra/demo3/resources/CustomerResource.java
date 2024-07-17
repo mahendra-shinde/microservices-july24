@@ -12,7 +12,8 @@ import com.mahendra.demo3.models.Customer;
 public class CustomerResource {
 
 	@GetMapping(produces="application/json")
-	@RequestMapping("/{custId}")
+	//Request Path set to /find
+	@RequestMapping("/find/{custId}")
 	public Customer findCustomer(@PathVariable("custId") String custId) {
 		Customer customer = new Customer();
 		customer.setCustId(custId);
