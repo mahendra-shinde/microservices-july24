@@ -1,0 +1,44 @@
+services:
+  discovery:
+    image: mahendra/discovery
+    ports:
+      - 8761:8761
+
+  config:
+    image: mahendra/config
+    ports:
+      - 8888:8888
+    depends_on:
+    - discovery
+
+  customer:
+    image: mahendra/demo-3
+    ports:
+      - 8000:8000
+    depends_on:
+      - discovery
+      - config
+    
+  account:
+    image: mahendra/demo-4
+    ports:
+      - 7000:7000
+    depends_on:
+      - discovery
+      - config
+    
+  loan:
+    image: mahendra/demo-5
+    ports:
+      - 9000:9000
+    depends_on:
+      - discovery
+      - config
+    
+  gateway:
+    image: mahendra/gateway
+    ports:
+      - 8080:8080
+    depends_on:
+      - discovery
+      - config
