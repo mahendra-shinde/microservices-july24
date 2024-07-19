@@ -1,0 +1,7 @@
+.classpath
+.settings
+target/
+!target/*-1.0.jar
+.gitignore
+*.md
+.project

@@ -1,0 +1,7 @@
+.classpath
+.settings
+target/
+!target/demo-4-1.0.jar
+.gitignore
+*.md
+.project
